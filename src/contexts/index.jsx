@@ -125,7 +125,7 @@ function ShoopingCartProvider({ children }) {
     if (!searchTitleBar && !searchByCategory) {
       setFilteredItems(filterBy(null, items, searchTitleBar, searchByCategory));
     }
-  }, [items, searchTitleBar, searchByCategory ,searchType]);
+  }, [items, searchTitleBar, searchByCategory ]);
 
 
   const [animationSwitch, setAnimationSwitch] = useState(false);
