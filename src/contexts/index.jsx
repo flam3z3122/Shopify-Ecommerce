@@ -68,7 +68,8 @@ function ShoopingCartProvider({ children }) {
 
   useEffect(() => {
     updateTotalPriceOfProducts();
-  }, [cartProducts,updateTotalPriceOfProducts]);
+  }
+  , [cartProducts]);
 
   const filterBy = (searchType, items, searchTitleBar, searchByCategory) => {
     if (searchType === "BY_TITLE") {

@@ -1,11 +1,11 @@
-// Footer.js
+
 
 import React from 'react';
 
 const Footer = () => {
   return (
     <footer style={styles.footer}>
-      <p style={styles.text}>Your Copyright © {new Date().getFullYear()}</p>
+      <p style={styles.text}> ©{new Date().getFullYear() }Copyright: Shopify.com </p>
     </footer>
   );
 };
@@ -19,6 +19,7 @@ const styles = {
     position: 'fixed',
     bottom: 0,
     width: '100%',
+    opacity:0.9,
   },
   text: {
     margin: 0,
