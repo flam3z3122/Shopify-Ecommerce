@@ -8,8 +8,6 @@ import NotFound from "./pages/NotFound";
 import { Navbar } from "./components/Navbar";
 import { CheckOutSideMenu } from "./components/CheckOutSideMenu";
 import Signin from "./Auth/Signin";
-import Slider from "./Slider/Slider";
-import { SliderData } from "./Slider/SliderData";
 // import Footer from "./pages/Footer/Footer";
 
 const AppRoutes = () => {
