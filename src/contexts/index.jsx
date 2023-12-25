@@ -68,7 +68,7 @@ function ShoopingCartProvider({ children }) {
 
   useEffect(() => {
     updateTotalPriceOfProducts();
-  }, [cartProducts]);
+  }, [cartProducts,updateTotalPriceOfProducts]);
 
   const filterBy = (searchType, items, searchTitleBar, searchByCategory) => {
     if (searchType === "BY_TITLE") {
@@ -124,7 +124,7 @@ function ShoopingCartProvider({ children }) {
     if (!searchTitleBar && !searchByCategory) {
       setFilteredItems(filterBy(null, items, searchTitleBar, searchByCategory));
     }
-  }, [items, searchTitleBar, searchByCategory]);
+  }, [items, searchTitleBar, searchByCategory ,filterBy]);
 
 
   const [animationSwitch, setAnimationSwitch] = useState(false);

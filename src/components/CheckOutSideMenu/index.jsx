@@ -15,7 +15,7 @@ function CheckOutSideMenu() {
 
   const handleDelete = (id) => {
     const filteredProducts = context.cartProducts.filter(
-      (product) => product.id != id
+      (product) => product.id !== id
     );
     context.setCartProducts(filteredProducts);
   };
