@@ -75,22 +75,22 @@ function ShoopingCartProvider({ children }) {
     updateTotalPriceOfProducts();
   }, [cartProducts, updateTotalPriceOfProducts]);
 
-  const filterBy = (searchType, items, searchTitleBar, searchByCategory) => {
-    if (searchType === "BY_TITLE") {
-      return filteredItemsByTitle(items, searchTitleBar);
-    }
-    if (searchType === "BY_CATEGORY") {
-      return filteredItemsByCategory(items, searchByCategory);
-    }
-    if (searchType === "BY_TITLE_AND_CATEGORY") {
-      return filteredItemsByCategory(items, searchByCategory).filter((item) =>
-        item.title.toLowerCase().includes(searchTitleBar.toLowerCase())
-      );
-    }
-    if (!searchType) {
-      return items;
-    }
-  };
+  // const filterBy = (searchType, items, searchTitleBar, searchByCategory) => {
+  //   if (searchType === "BY_TITLE") {
+  //     return filteredItemsByTitle(items, searchTitleBar);
+  //   }
+  //   if (searchType === "BY_CATEGORY") {
+  //     return filteredItemsByCategory(items, searchByCategory);
+  //   }
+  //   if (searchType === "BY_TITLE_AND_CATEGORY") {
+  //     return filteredItemsByCategory(items, searchByCategory).filter((item) =>
+  //       item.title.toLowerCase().includes(searchTitleBar.toLowerCase())
+  //     );
+  //   }
+  //   if (!searchType) {
+  //     return items;
+  //   }
+  // };
 
   const filteredItemsByTitle = (items, searchByTitle) => {
     return items?.filter((item) =>
@@ -98,38 +98,73 @@ function ShoopingCartProvider({ children }) {
     );
   };
 
-  const filteredItemsByCategory = (items, searchByCategory) => {
-    return items?.filter((item) =>
-      item.category.name.toLowerCase().includes(searchByCategory.toLowerCase())
-    );
-  };
+const filteredItemsByCategory = (items, searchByCategory) => {
+  return items?.filter((item) =>
+    item.category.name.toLowerCase().includes(searchByCategory.toLowerCase())
+  );
+};
+
+  // useEffect(() => {
+  //   if (searchTitleBar && searchByCategory) {
+  //     setFilteredItems(
+  //       filterBy(
+  //         "BY_TITLE_AND_CATEGORY",
+  //         items,
+  //         searchTitleBar,
+  //         searchByCategory
+  //       )
+  //     );
+  //   }
+  //   if (searchTitleBar && !searchByCategory) {
+  //     setFilteredItems(
+  //       filterBy("BY_TITLE", items, searchTitleBar, searchByCategory)
+  //     );
+  //   }
+  //   if (!searchTitleBar && searchByCategory) {
+  //     setFilteredItems(
+  //       filterBy("BY_CATEGORY", items, searchTitleBar, searchByCategory)
+  //     );
+  //   }
+
+  //   if (!searchTitleBar && !searchByCategory) {
+  //     setFilteredItems(filterBy(null, items, searchTitleBar, searchByCategory));
+  //   }
+  // }, [items, searchTitleBar, searchByCategory , filterBy ]);
 
   useEffect(() => {
+    const filterBy = (searchType, items, searchTitleBar, searchByCategory) => {
+      if (searchType === "BY_TITLE") {
+        return filteredItemsByTitle(items, searchTitleBar);
+      }
+      if (searchType === "BY_CATEGORY") {
+        return filteredItemsByCategory(items, searchByCategory);
+      }
+      if (searchType === "BY_TITLE_AND_CATEGORY") {
+        return filteredItemsByCategory(items, searchByCategory).filter((item) =>
+          item.title.toLowerCase().includes(searchTitleBar.toLowerCase())
+        );
+      }
+      if (!searchType) {
+        return items;
+      }
+    };
+
     if (searchTitleBar && searchByCategory) {
       setFilteredItems(
-        filterBy(
-          "BY_TITLE_AND_CATEGORY",
-          items,
-          searchTitleBar,
-          searchByCategory
-        )
+        filterBy("BY_TITLE_AND_CATEGORY", items, searchTitleBar, searchByCategory)
       );
     }
     if (searchTitleBar && !searchByCategory) {
-      setFilteredItems(
-        filterBy("BY_TITLE", items, searchTitleBar, searchByCategory)
-      );
+      setFilteredItems(filterBy("BY_TITLE", items, searchTitleBar, searchByCategory));
     }
     if (!searchTitleBar && searchByCategory) {
-      setFilteredItems(
-        filterBy("BY_CATEGORY", items, searchTitleBar, searchByCategory)
-      );
+      setFilteredItems(filterBy("BY_CATEGORY", items, searchTitleBar, searchByCategory));
     }
-
     if (!searchTitleBar && !searchByCategory) {
       setFilteredItems(filterBy(null, items, searchTitleBar, searchByCategory));
     }
-  }, [items, searchTitleBar, searchByCategory , filterBy ]);
+  }, [items, searchTitleBar, searchByCategory]);
+
 
 
   const [animationSwitch, setAnimationSwitch] = useState(false);
