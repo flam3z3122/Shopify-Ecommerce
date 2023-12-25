@@ -77,7 +77,7 @@ function App() {
           <AppRoutes />
           <Navbar />
           <CheckOutSideMenu></CheckOutSideMenu>
-          <Footer/>
+          {/* <Footer/> */}
         </BrowserRouter>
       </ShoopingCartProvider>
     </>

@@ -16,10 +16,11 @@ const styles = {
     color: '#fff',
     textAlign: 'center',
     padding: '1rem',
-    position: 'fixed',
+    // position: 'fixed',
     bottom: 0,
     width: '100%',
     opacity:0.9,
+
   },
   text: {
     margin: 0,

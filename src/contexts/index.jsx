@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { totalPrice } from "../components/Utils";
+import { useCallback } from "react";
 
 const ShoppingCartContext = createContext();
 
