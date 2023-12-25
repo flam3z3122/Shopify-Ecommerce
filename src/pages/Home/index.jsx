@@ -3,6 +3,8 @@ import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
 import { ProductDetail } from "../../components/ProductDetail/index";
 import { ShoppingCartContext } from "../../contexts";
+import { SliderData } from "../../Slider/SliderData";
+import Slider from "../../Slider/Slider";
 // import { Nothing_related } from "./nothing_related_svg";
 
 function Home() {
@@ -27,7 +29,9 @@ function Home() {
     }
   };
   return (
-    <>
+    <div className="my-5">
+          <Slider slides={SliderData} />
+    
       <Layout>
         <div className="flex items-center justify-center  relative w-80 mb-4 my-5">
           Home
@@ -42,7 +46,7 @@ function Home() {
         <ProductDetail></ProductDetail>
       </Layout>
 
-    </>
+    </div>
   );
 }
 

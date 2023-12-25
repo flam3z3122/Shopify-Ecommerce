@@ -1,0 +1,22 @@
+export const SliderData = [
+    {
+      image:
+        'https://static.vecteezy.com/system/resources/previews/010/287/011/non_2x/e-commerce-banner-web-icon-set-money-call-barcode-thumb-up-gift-quality-delivery-truck-free-shipping-illustration-concept-vector.jpg'
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGUlMjBjb21tZXJjZXxlbnwwfHwwfHx8MA%3D%3D'
+    },
+    {
+      image:
+        'https://png.pngtree.com/thumb_back/fw800/background/20230523/pngtree-black-and-white-image-of-a-shopping-laptop-being-set-against-image_2606815.jpg'
+    },
+    {
+      image:
+        'https://cdn5.vectorstock.com/i/1000x1000/52/04/online-shopping-e-commerce-banner-concept-vector-25035204.jpg'
+    },
+    {
+      image:
+        'https://plus.unsplash.com/premium_photo-1661774910035-05257f7d73a6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZSUyMGNvbW1lcmNlfGVufDB8fDB8fHww'
+    }
+  ];
