@@ -1,24 +1,84 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRoutes, BrowserRouter } from "react-router-dom";
+import { ShoopingCartProvider } from "./contexts";
+import Home from "./pages/Home/index";
+import MyAccount from "./pages/MyAccount";
+import MyOrder from "./pages/MyOrder";
+import MyOrders from "./pages/MyOrders";
+import NotFound from "./pages/NotFound";
+import { Navbar } from "./components/Navbar";
+import { CheckOutSideMenu } from "./components/CheckOutSideMenu";
+import Signin from "./Auth/Signin";
+
+const AppRoutes = () => {
+  let routes = useRoutes([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/clothes",
+      element: <Home />,
+    },
+    {
+      path: "/electronics",
+      element: <Home />,
+    },
+    {
+      path: "/furnitures",
+      element: <Home />,
+    },
+    {
+      path: "/toys",
+      element: <Home />,
+    },
+    {
+      path: "/others",
+      element: <Home />,
+    },
+    {
+      path: "/my-order",
+      element: <MyOrder />,
+    },
+    {
+      path: "/my-account",
+      element: <MyAccount />,
+    },
+    {
+      path: "/Vite-E-commerce/my-orders",
+      element: <MyOrders />,
+    },
+    {
+      path: "/Vite-E-commerce/my-orders/last",
+      element: <MyOrder />,
+    },
+    {
+      path: "/Vite-E-commerce/my-orders/:id",
+      element: <MyOrder />,
+    },
+    {
+      path: "/sign-in",
+      element: <Signin />,
+    },
+    {
+      path: "/*",
+      element: <NotFound />,
+    },
+  ]);
+
+  return routes;
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ShoopingCartProvider>
+        <BrowserRouter>
+          <AppRoutes />
+          <Navbar />
+          <CheckOutSideMenu></CheckOutSideMenu>
+        </BrowserRouter>
+      </ShoopingCartProvider>
+    </>
   );
 }
 
