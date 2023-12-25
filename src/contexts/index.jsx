@@ -34,9 +34,13 @@ function ShoopingCartProvider({ children }) {
 
   const [totalPriceOfProducts, setTotalPriceOfProducts] = useState(0);
 
-  const updateTotalPriceOfProducts = () => {
+  // const updateTotalPriceOfProducts = () => {
+  //   setTotalPriceOfProducts(totalPrice(cartProducts));
+  // };
+
+  const updateTotalPriceOfProducts = useCallback(() => {
     setTotalPriceOfProducts(totalPrice(cartProducts));
-  };
+  }, [cartProducts, setTotalPriceOfProducts]);
 
 
   const [order, setOrder] = useState([]);
@@ -124,7 +128,7 @@ function ShoopingCartProvider({ children }) {
     if (!searchTitleBar && !searchByCategory) {
       setFilteredItems(filterBy(null, items, searchTitleBar, searchByCategory));
     }
-  }, [items, searchTitleBar, searchByCategory , filterBy ]);
+  }, [items, searchTitleBar, searchByCategory  ]);
 
 
   const [animationSwitch, setAnimationSwitch] = useState(false);
